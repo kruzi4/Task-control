@@ -20,6 +20,17 @@ a {
     color: #ff5644;
     text-decoration: none;
     transition: all 600ms ease;
+    cursor: pointer;
+}
+
+h1 {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.sort {
+  text-align: center;
+  margin: 5px 0 15px 0;
 }
 
 a:hover {
@@ -27,10 +38,62 @@ a:hover {
     transition: all 600ms ease;
 }
 
+.tasks {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 2%;
+}
+
+.task {
+  padding: 5%;
+  border-radius: 5px;
+  background-color: #75d57b73;
+  min-height: 300px;
+  height: auto;
+}
+
+.task > h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.task > p {
+  text-align: justify;
+}
+
+.done {
+  width: 12px;
+  height: 12px;
+}
+
+.info {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.task > span {
+  font-size: 10px;
+}
+
+.pages {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pages > a {
+  font-size: 20px
+  color: black;
+  font-weight: bold;
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 10px;
+  cursor: pointer;
+}
+
 .container {
-    padding-left: 15%;
-    padding-right: 15%;
-    width: 70%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
 }
 
 @media(max-width: 900px) {
@@ -66,21 +129,14 @@ header > .top-menu > .nav a:not(:last-of-type)::after {
     color: #fff;
 }
 
-header > .middle {
-    margin: 30px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .btn {
-    width: 130px;
+    width: 150px;
     height: 40px;
     background: #333;
     border-radius: 5px;
     border: 0;
     font-size: 14px;
-    margin-left: 10px;
+    margin-top: 15px;
     color: #fff;
     cursor: pointer;
     transition: all 600ms ease;
@@ -91,41 +147,6 @@ header > .middle {
     transform: scale(1.05) translateY(-5px);
     box-shadow: 0px 10px 20px -2px rgba(0,0,0,0.3);
 }
-
-.main {margin-top: 50px}
-
-.main > .tasks {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.main > .tasks > .task {
-    width: 30%;
-    margin-right: 5%;
-    height: 480px;
-    background: #eaeaea;
-    border-radius: 5px 5px 0 0;
-    margin-top: 50px;
-    border: 1px solid silver;
-    box-sizing: border-box;
-}
-
-.main > .tasks > .task:nth-child(3n) {margin-right: 0}
-
-.main > .tasks > .task .image img:hover {transform: scale(1.15)}
-
-.main > .tasks > .task h3,
-.main > .tasks > .task p {
-    margin: 20px 5%;
-    width: 90%;
-    font-size: 22px;
-    color: #515b5b;
-}
-
-.main > .tasks > .task p {font-size: 16px}
-
-.main > .tasks > .task .btn {background: #ff5644}
 
 footer {
     margin-top: 50px;

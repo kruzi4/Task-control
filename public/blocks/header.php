@@ -13,7 +13,4 @@
           <?php endif; ?>
         </div>
     </div>
-    <div class="container middle">
-
-    </div>
 </header>

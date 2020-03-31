@@ -16,6 +16,32 @@
 
     <div class="container main">
         <h1>Список задач</h1>
+        <div class="sort">
+          <h4>Сортировать по:</h4>
+          <a>Имени</a>
+          <a>Email</a>
+          <a>Статусу</a>
+        </div>
+        <div class="tasks">
+          <?php for ($i=0; $i < 3; $i++): ?>
+            <div class="task">
+              <h3>Заглавие задачи <img class="done" src="/public/img/done.svg" alt="Выполнено"></h3>
+              <div class="info">
+                <span>Константин</span><br>
+                <span>kostyabest@ukr.net</span>
+              </div>
+              <p>LoremLorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo itaque quisquam delectus voluptatum, in quaerat architecto nam libero assumenda quo, repellendus quasi veritatis impedit earum excepturi velit consequatur cumque ad. Lorem20</p>
+              <button class="btn" type="button" name="button">Задача выполнена</button>
+            </div>
+          <?php endfor; ?>
+        </div>
+        <div class="pages">
+          <a>1</a>
+          <a>2</a>
+          <a>3</a>
+          <a>4</a>
+        </div>
+
         <!-- <div class="products">
             <?php for($i = 0; $i < count($data); $i++): ?>
             <div class="product">
