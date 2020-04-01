@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Главная страница</title>
-    <meta name="description" content="Главная страница интернет магазина">
+    <meta name="description" content="Главная страница задачника">
 
     <link rel="stylesheet" href="/public/css/main.css" charset="utf-8">
 </head>
@@ -45,10 +45,18 @@
               <div class="info">
                 <span><?=$data[task][$i]['user_name']?></span><br>
                 <span><?=$data[task][$i]['user_email']?></span>
+                <?php if($data[task][$i]['status'] == 3): ?>
+                  <br><span>Отредактировано администратором</span>
+                <?endif; ?>
               </div>
               <p><?=$data[task][$i]['text']?></p>
-<!--              <button class="btn admin" type="button" name="button">Редактировать</button>-->
-<!--              <button class="btn admin" type="button" name="button">Задача выполнена</button>-->
+                <?php if ($_COOKIE['login'] == "admin") : ?>
+                    <a href="/task/edit/<?=$data[task][$i]['id']?>"><button class="btn admin" type="button" name="button">Редактировать</button></a>
+                    <form action="/" method="post">
+                        <input type="hidden" name="task_done" value="<?=$data[task][$i]['id']?>">
+                        <label for="task_done"><button class="btn admin">Задача выполнена</button></label>
+                    </form>
+                <?php endif; ?>
             </div>
           <?php endfor; ?>
         </div>

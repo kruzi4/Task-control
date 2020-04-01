@@ -18,4 +18,14 @@ class Task extends Controller {
             $this->view('task/create');
         }
     }
+
+    public function edit($id) {
+        $task = $this->model(TaskModel);
+
+        if(isset($_POST['edit_title'])){
+            $task->updateTask($id, $_POST['edit_title'], $_POST['edit_text'], $_POST['edit_user_name'], $_POST['edit_user_email'], 3);
+        }
+
+        $this->view('task/edit', $task->getOneTask($id));
+    }
 }

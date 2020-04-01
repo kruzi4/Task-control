@@ -17,6 +17,9 @@
             if(isset($_POST['sort_by_status']))
                 $sort = $tasks->getTasksLimited(status, $limit);
 
+            if(isset($_POST['task_done']))
+                $tasks->updateTaskStatus($_POST['task_done'], 2);
+
             $data = [
               'task' => $sort,
               'pages' => $total,
