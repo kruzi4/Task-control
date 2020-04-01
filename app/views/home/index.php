@@ -43,7 +43,8 @@
                 <span><?=$data[task][$i]['user_email']?></span>
               </div>
               <p><?=$data[task][$i]['text']?></p>
-<!--              <button class="btn" type="button" name="button">Задача выполнена</button>-->
+<!--              <button class="btn admin" type="button" name="button">Редактировать</button>-->
+<!--              <button class="btn admin" type="button" name="button">Задача выполнена</button>-->
             </div>
           <?php endfor; ?>
         </div>
@@ -55,19 +56,6 @@
             <?php endfor; ?>
         </div>
         <?endif; ?>
-
-        <!-- <div class="products">
-            <?php for($i = 0; $i < count($data); $i++): ?>
-            <div class="product">
-                <div class="image">
-                    <img src="/public/img/<?=$data[$i]['img']?>" alt="<?=$data[$i]['title']?>">
-                </div>
-                <h3><?=$data[$i]['title']?></h3>
-                <p><?=$data[$i]['anons']?></p>
-                <a href="/product/<?=$data[$i]['id']?>"><button class="btn">Детальнее</button></a>
-            </div>
-            <?php endfor; ?>
-        </div> -->
     </div>
 
     <?php require 'public/blocks/footer.php' ?>

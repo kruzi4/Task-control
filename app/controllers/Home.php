@@ -9,16 +9,6 @@
 
             $total = ceil($tasks->countTasks() / $per_page);
 
-            if(isset($_POST['title'])){
-                $tasks->setData($_POST['title'], $_POST['text'], $_POST['user_name'], $_POST['user_email']);
-            }
-
-            $isValid = $tasks->validForm();
-            if($isValid == "Верно")
-                $tasks->addTask();
-            else
-                $error = $isValid;
-
             $sort = $tasks->getTasksLimited(id, $limit);
             if(isset($_POST['sort_by_name']))
                 $sort = $tasks->getTasksLimited(user_name, $limit);

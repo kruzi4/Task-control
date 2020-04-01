@@ -16,12 +16,12 @@
 
     <div class="container main">
         <h1>Создать задачу</h1>
-        <form action="/" method="post" class="form-control">
-            <input type="text" name="title" placeholder="Введите заглавие задачи" value=""><br>
-            <textarea name="text" placeholder="Введите текст задачи" value=""></textarea><br>
-            <input type="text" name="user_name" placeholder="Введите имя" value=""><br>
-            <input type="text" name="user_email" placeholder="Введите email" value="">
-<!--            <div class="error">--><?//=$data['message']?><!--</div>-->
+        <form action="/task/create" method="post" class="form-control">
+            <input type="text" name="title" placeholder="Введите заглавие задачи" value="<?=$_POST['title']?>"><br>
+            <textarea name="text" placeholder="Введите текст задачи"><?=$_POST['text']?></textarea><br>
+            <input type="text" name="user_name" placeholder="Введите имя" value="<?=$_POST['user_name']?>"><br>
+            <input type="email" name="user_email" placeholder="Введите email" value="<?=$_POST['user_email']?>">
+            <div class="error"><?=$data['message']?></div>
             <button class="btn" id="send">Создать</button>
         </form>
     </div>
