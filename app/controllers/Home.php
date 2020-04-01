@@ -19,8 +19,16 @@
             else
                 $error = $isValid;
 
+            $sort = $tasks->getTasksLimited(id, $limit);
+            if(isset($_POST['sort_by_name']))
+                $sort = $tasks->getTasksLimited(user_name, $limit);
+            if(isset($_POST['sort_by_email']))
+                $sort = $tasks->getTasksLimited(user_email, $limit);
+            if(isset($_POST['sort_by_status']))
+                $sort = $tasks->getTasksLimited(status, $limit);
+
             $data = [
-              'task' => $tasks->getTasksLimited(id, $limit),
+              'task' => $sort,
               'pages' => $total,
               'message' => $this->error,
             ];

@@ -15,11 +15,20 @@
 
     <div class="container main">
         <h1>Список задач</h1>
+        <h4>Сортировать по:</h4>
         <div class="sort">
-          <h4>Сортировать по:</h4>
-          <button class="btn"><a>Имени</a></button>
-          <button class="btn"><a>Email</a></button>
-          <button class="btn"><a>Статусу</a></button>
+            <form action="/" method="post">
+                <input type="hidden" name="sort_by_name" value="">
+                <label for="sort_by_name"><button class="btn">Имени</button></label>
+            </form>
+            <form action="/" method="post">
+                <input type="hidden" name="sort_by_email" value="">
+                <label for="sort_by_email"><button class="btn">Email</button></label>
+            </form>
+            <form action="/" method="post">
+                <input type="hidden" name="sort_by_status" value="">
+                <label for="sort_by_status"><button class="btn">Статусу</button></label>
+            </form>
         </div>
 
         <div class="tasks">
@@ -34,7 +43,7 @@
                 <span><?=$data[task][$i]['user_email']?></span>
               </div>
               <p><?=$data[task][$i]['text']?></p>
-              <button class="btn" type="button" name="button">Задача выполнена</button>
+<!--              <button class="btn" type="button" name="button">Задача выполнена</button>-->
             </div>
           <?php endfor; ?>
         </div>

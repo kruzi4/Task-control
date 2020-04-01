@@ -21,7 +21,7 @@
             <textarea name="text" placeholder="Введите текст задачи" value=""></textarea><br>
             <input type="text" name="user_name" placeholder="Введите имя" value=""><br>
             <input type="text" name="user_email" placeholder="Введите email" value="">
-            <div class="error"><?=$data['message']?></div>
+<!--            <div class="error">--><?//=$data['message']?><!--</div>-->
             <button class="btn" id="send">Создать</button>
         </form>
     </div>
