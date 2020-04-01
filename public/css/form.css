@@ -1,5 +1,7 @@
 .form-control {
-    width: 500px;
+    width: 60%;
+    padding-right: 20%;
+    padding-left: 20%;
 }
 
 .form-control input,

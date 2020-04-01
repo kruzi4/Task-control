@@ -9,7 +9,6 @@
     <meta name="description" content="Главная страница интернет магазина">
 
     <link rel="stylesheet" href="/public/css/main.css" charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
 </head>
 <body>
     <?php require 'public/blocks/header.php' ?>
@@ -18,29 +17,35 @@
         <h1>Список задач</h1>
         <div class="sort">
           <h4>Сортировать по:</h4>
-          <a>Имени</a>
-          <a>Email</a>
-          <a>Статусу</a>
+          <button class="btn"><a>Имени</a></button>
+          <button class="btn"><a>Email</a></button>
+          <button class="btn"><a>Статусу</a></button>
         </div>
+
         <div class="tasks">
-          <?php for ($i=0; $i < 3; $i++): ?>
+          <?php for($i = 0; $i < count($data['task']); $i++): ?>
             <div class="task">
-              <h3>Заглавие задачи <img class="done" src="/public/img/done.svg" alt="Выполнено"></h3>
+              <h3>
+                  <?=$data[task][$i]['title']?>
+                  <?php if($data[task][$i]['status'] == 2): ?><img class="done" src="/public/img/done.svg" alt="Выполнено"><?endif;?>
+              </h3>
               <div class="info">
-                <span>Константин</span><br>
-                <span>kostyabest@ukr.net</span>
+                <span><?=$data[task][$i]['user_name']?></span><br>
+                <span><?=$data[task][$i]['user_email']?></span>
               </div>
-              <p>LoremLorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo itaque quisquam delectus voluptatum, in quaerat architecto nam libero assumenda quo, repellendus quasi veritatis impedit earum excepturi velit consequatur cumque ad. Lorem20</p>
+              <p><?=$data[task][$i]['text']?></p>
               <button class="btn" type="button" name="button">Задача выполнена</button>
             </div>
           <?php endfor; ?>
         </div>
+
+        <?php if ($data['pages'] > 1): ?>
         <div class="pages">
-          <a>1</a>
-          <a>2</a>
-          <a>3</a>
-          <a>4</a>
+            <?php for($i = 1;$i <= $data['pages']; $i++): ?>
+                <a href="/<?=$i?>"><?=$i?></a>
+            <?php endfor; ?>
         </div>
+        <?endif; ?>
 
         <!-- <div class="products">
             <?php for($i = 0; $i < count($data); $i++): ?>
