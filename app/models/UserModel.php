@@ -40,36 +40,36 @@
             $pass = password_hash($this->pass, PASSWORD_DEFAULT);
             $query->execute(['name' => $this->name, 'email' => $this->email, 'pass' => $pass, 'status' => "User"]);
 
-            $this->setAuth($this->email);
+            $this->setAuth($this->name);
         }
 
         public function getUser() {
-            $email = $_COOKIE['login'];
-            $result = $this->_db->query("SELECT * FROM `users` WHERE `email` = '$email'");
+            $login = $_COOKIE['login'];
+            $result = $this->_db->query("SELECT * FROM `users` WHERE `name` = '$login'");
             return $result->fetch(PDO::FETCH_ASSOC);
         }
 
         public function logOut() {
-            setcookie('login', $this->email, time() - 3600, '/');
+            setcookie('login', $this->login, time() - 3600, '/');
             unset($_COOKIE['login']);
             header('Location: /user/auth');
         }
 
-        public function auth($email, $pass) {
-            $result = $this->_db->query("SELECT * FROM `users` WHERE `email` = '$email'");
+        public function auth($name, $pass) {
+            $result = $this->_db->query("SELECT * FROM `users` WHERE `name` = '$name'");
             $user = $result->fetch(PDO::FETCH_ASSOC);
 
-            if($user['email'] == '')
-                return 'Пользователя с таким email не существует';
+            if($user['name'] == '')
+                return 'Пользователя с таким логином не существует';
             else if(password_verify($pass, $user['pass']))
-                $this->setAuth($email);
+                $this->setAuth($name);
             else
                 return 'Пароли не совпадают';
         }
 
-        public function setAuth($email) {
-            setcookie('login', $email, time() + 3600, '/');
-            header('Location: /user/dashboard');
+        public function setAuth($login) {
+            setcookie('login', $login, time() + 3600, '/');
+            header('Location: /');
         }
 
     }

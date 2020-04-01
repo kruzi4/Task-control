@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="/public/css/main.css" charset="utf-8">
     <link rel="stylesheet" href="/public/css/form.css" charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
 </head>
 <body>
     <?php require 'public/blocks/header.php' ?>
@@ -19,10 +18,10 @@
         <h1>Авторизация</h1>
         <p>Здесь вы можете авторизоваться на сайте</p>
         <form action="/user/auth" method="post" class="form-control">
-            <input type="text" name="email" placeholder="Введите email" value="<?=$_POST['email']?>"><br>
+            <input type="text" name="name" placeholder="Введите имя пользователя" value="<?=$_POST['name']?>"><br>
             <input type="password" name="pass" placeholder="Введите пароль" value="<?=$_POST['pass']?>"><br>
             <div class="error"><?=$data['message']?></div>
-            <button class="btn" id="send">Готово</button>
+            <button class="btn" id="send">Войти</button>
         </form>
     </div>
 

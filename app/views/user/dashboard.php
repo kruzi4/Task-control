@@ -10,7 +10,6 @@
 
     <link rel="stylesheet" href="/public/css/main.css" charset="utf-8">
     <link rel="stylesheet" href="/public/css/user.css" charset="utf-8">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" crossorigin="anonymous">
 </head>
 <body>
     <?php require 'public/blocks/header.php' ?>

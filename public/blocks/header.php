@@ -1,7 +1,7 @@
 <header>
     <div class="container top-menu">
         <div class="nav">
-            <a href="/">Task Manager</a>
+            <img src="/public/img/logo.svg" alt="Логотип"><a href="/">Task Manager</a>
         </div>
         <div class="nav">
             <a href="/task/create">Создать задачу</a>

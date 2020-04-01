@@ -36,7 +36,11 @@
             <div class="task">
               <h3>
                   <?=$data[task][$i]['title']?>
-                  <?php if($data[task][$i]['status'] == 2): ?><img class="done" src="/public/img/done.svg" alt="Выполнено"><?endif;?>
+                  <?php if($data[task][$i]['status'] == 2): ?>
+                      <img class="done" src="/public/img/done.svg" alt="Выполнено">
+                  <?else: ?>
+                      <img class="not-done" src="/public/img/not_done.svg" alt="Не выполнено">
+                  <?endif; ?>
               </h3>
               <div class="info">
                 <span><?=$data[task][$i]['user_name']?></span><br>
