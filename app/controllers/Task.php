@@ -22,10 +22,17 @@ class Task extends Controller {
     public function edit($id) {
         $task = $this->model(TaskModel);
 
-        if(isset($_POST['edit_title'])){
-            $task->updateTask($id, $_POST['edit_title'], $_POST['edit_text'], $_POST['edit_user_name'], $_POST['edit_user_email'], 3);
+        if(isset($_POST['edit_title']) && $_COOKIE['login'] == 'admin') {
+                $task->updateTask($id, $_POST['edit_title'], $_POST['edit_text'], $_POST['edit_user_name'], $_POST['edit_user_email'], 3);
         }
 
-        $this->view('task/edit', $task->getOneTask($id));
+        if($_COOKIE['login'] == 'admin') {
+            $this->view('task/edit', $task->getOneTask($id));
+        }elseif ($_COOKIE['login'] != 'admin' && $_COOKIE['login'] != '') {
+            header("Location: /");
+        }else{
+            header("Location: /user/auth");
+        }
+
     }
 }
