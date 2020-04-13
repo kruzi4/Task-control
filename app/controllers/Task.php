@@ -23,7 +23,7 @@ class Task extends Controller {
         $task = $this->model(TaskModel);
 
         if(isset($_POST['edit_title']) && $_COOKIE['login'] == 'admin') {
-                $task->updateTask($id, $_POST['edit_title'], $_POST['edit_text'], $_POST['edit_user_name'], $_POST['edit_user_email'], 3);
+            $task->updateTask($id, $_POST['edit_title'], $_POST['edit_text'], $_POST['edit_user_name'], $_POST['edit_user_email'], 3);
         }
 
         if($_COOKIE['login'] == 'admin') {
